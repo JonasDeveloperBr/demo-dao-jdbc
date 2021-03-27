@@ -15,6 +15,7 @@ public class Seller implements Serializable {
 	private Department department;
 	
 	public Seller() {
+		System.out.println("|Log-Seller.class" + new Date() + " id=? name=?|");
 	}
 	
 	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
@@ -24,6 +25,7 @@ public class Seller implements Serializable {
 		this.birthDate = birthDate;
 		this.baseSalary = baseSalary;
 		this.department = department;
+		System.out.println("|Log-Seller.class" + new Date() + " id="+id+" name="+name+"|");
 	}
 
 	public Integer getId() {
