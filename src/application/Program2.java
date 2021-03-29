@@ -1,7 +1,5 @@
 package application;
 
-import java.util.List;
-
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
@@ -15,8 +13,7 @@ public class Program2 {
 		/**
 		 * Find and Print all Departments
 		 */
-		List<Department> listDep = departmentDao.findAll();
-		listDep.forEach(System.out::println);
+		departmentDao.findAll().forEach(System.out::println);
 		System.out.println();
 
 		/**
@@ -29,10 +26,25 @@ public class Program2 {
 		 * Delete an specific Department by Id
 		 */
 		departmentDao.deleteById(6);
-		System.out.println("After delete!");
-		System.out.println(departmentDao.findById(6));
 		System.out.println();
 		
+		/**
+		 * Update department by id
+		 */
+		Department updateDepartment = departmentDao.findById(2);
+		System.out.println("Before update:\n" + updateDepartment);
+		updateDepartment.setName("Games");
+		departmentDao.update(updateDepartment);
+		System.out.println("After update:\n" + departmentDao.findById(2) + "\n");
+		
+		/**
+		 * Insert department
+		 */
+		Department newDep = new Department();
+		newDep.setName("Sports");
+		System.out.println(newDep);
+		departmentDao.insert(newDep);
+		System.out.println(newDep);
 		
 	}
 
