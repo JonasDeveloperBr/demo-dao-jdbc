@@ -59,7 +59,14 @@ public class Program {
 			System.out.println(x);
 		}
 		System.out.println();
-
+		
+		System.out.println("=== TEST 6: seller delete ===");
+		Seller newSeller2 = sellerDao.findById(14);
+		System.out.println(newSeller2);
+		sellerDao.delete(newSeller2.getId());
+		System.out.println("Deleted!");
+		newSeller2 = sellerDao.findById(14);
+		System.out.println(newSeller2);
 	}
 
 }
