@@ -10,13 +10,13 @@ public class Department implements Serializable {
 	private String name;
 	
 	public Department() {
-		System.out.println("|Log-Department.class" + new Date() + " id=? name=?|");
+		//System.out.println("|Log-Department.class" + new Date() + " id=? name=?|");
 	}
 	
 	public Department(Integer id, String name) {
 		this.id = id;
 		this.name = name;
-		System.out.println("|Log-Department.class" + new Date() + " id="+id+" name="+name+"|");
+		//System.out.println("|Log-Department.class" + new Date() + " id="+id+" name="+name+"|");
 	}
 
 	public Integer getId() {

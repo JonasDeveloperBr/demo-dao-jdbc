@@ -27,7 +27,7 @@ public class Program {
 		System.out.println(seller);
 		
 		System.out.println("=== TEST 2: seller findByDepartment ===");
-		Department department = new Department(2, null);
+		Department department = new Department(2, "Eletronics");
 		List<Seller> list = sellerDao.findByDepartment(department);
 		for (Seller seller2 : list) {
 			System.out.println(seller2);
@@ -41,9 +41,25 @@ public class Program {
 		System.out.println();
 		
 		System.out.println("=== TEST 4: seller insert ===");
-		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, department);
+		Seller newSeller = new Seller(null, "Jonas", "jhn@gmail.com", new Date(), 4000.00, department);
 		sellerDao.insert(newSeller);
 		System.out.println(newSeller);
+		System.out.println();
+		
+		System.out.println("=== TEST 5: seller update ===");
+		System.out.println("Before:");
+		System.out.println(newSeller);
+		Department newDep = new Department(1, "Computer");
+		newSeller.setName("Greg Pit");
+		newSeller.setEmail("greg.pit@gmail.com");
+		newSeller.setDepartment(newDep);
+		sellerDao.update(newSeller);
+		System.out.println("After:");
+		for (Seller x : sellerDao.findAll()) {
+			System.out.println(x);
+		}
+		System.out.println();
+
 	}
 
 }
