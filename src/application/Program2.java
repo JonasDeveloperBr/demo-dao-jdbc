@@ -13,11 +13,26 @@ public class Program2 {
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 
 		/**
-		 * Print list of Department
+		 * Find and Print all Departments
 		 */
 		List<Department> listDep = departmentDao.findAll();
 		listDep.forEach(System.out::println);
 		System.out.println();
+
+		/**
+		 * Find by Id an specific Department
+		 */
+		System.out.println(departmentDao.findById(3));
+		System.out.println();
+		
+		/**
+		 * Delete an specific Department by Id
+		 */
+		departmentDao.deleteById(6);
+		System.out.println("After delete!");
+		System.out.println(departmentDao.findById(6));
+		System.out.println();
+		
 		
 	}
 
